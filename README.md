@@ -12,6 +12,8 @@ Projetos demonstrativos para vagas remotas em back-end, automação e dados. O f
 | Catálogo de lançamentos | Filtros de catálogo e apresentação acessível. Duas variantes fictícias inspiradas em Lancamentos-LCI e Lancamentos-LC | `python demonstracoes.py catalogo --colecao litoral` |
 | Folheto imprimível | Geração de HTML para exportar como PDF pelo navegador. Reconstrução leve do fluxo do Gerador-de-PDF | `python demonstracoes.py folheto` |
 | Briefing verificável para IA | Contexto local, referências por ID, contrato de resposta JSON e rejeição de referências desconhecidas | `python briefing_ia.py gerar` |
+| Carteira de ISPs fictícia | Deduplicação por ID, preservação das fontes e total por região. Demonstração independente de prospecção | `python carteira_isp.py` |
+| Duelo de robôs modulares | Modelagem, regras de turno e testes. Demonstração independente inspirada na proposta do Meta Botis | `python duelo_modular.py` |
 
 ## Como rodar
 
