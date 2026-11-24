@@ -1,0 +1,50 @@
+{
+  "campanhas": [
+    {
+      "canal": "Busca",
+      "centavos": 45000,
+      "leads": 20
+    },
+    {
+      "canal": "Busca",
+      "centavos": 7500,
+      "leads": 5
+    },
+    {
+      "canal": "Social",
+      "centavos": 38000,
+      "leads": 19
+    },
+    {
+      "canal": "Portal",
+      "centavos": 10000,
+      "leads": 0
+    }
+  ],
+  "catalogo": {
+    "urbano": [
+      {
+        "nome": "Reserva Ipê",
+        "regiao": "Centro fictício",
+        "area_m2": 78
+      },
+      {
+        "nome": "Vila Horizonte",
+        "regiao": "Distrito Norte fictício",
+        "area_m2": 96
+      }
+    ],
+    "litoral": [
+      {
+        "nome": "Pátio das Dunas",
+        "regiao": "Praia fictícia",
+        "area_m2": 52
+      },
+      {
+        "nome": "Vila Salina",
+        "regiao": "Costa fictícia",
+        "area_m2": 71
+      }
+    ]
+  }
+}
