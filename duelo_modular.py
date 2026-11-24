@@ -8,12 +8,16 @@ class Robot:
     attack: int
     shield: int
 
+    def __post_init__(self):
+        if any(type(stat) is not int for stat in (self.hull, self.attack, self.shield)):
+            raise ValueError("Os atributos precisam ser inteiros.")
+        if self.hull <= 0 or self.attack < 0 or self.shield < 0:
+            raise ValueError("Estrutura precisa ser positiva. Ataque e escudo devem ser não negativos.")
+
 
 def duel(first, second):
     robots = (first, second)
     hulls = [first.hull, second.hull]
-    if any(robot.hull <= 0 or robot.attack < 0 or robot.shield < 0 for robot in robots):
-        raise ValueError("Estrutura precisa ser positiva. Ataque e escudo devem ser não negativos.")
     moves = []
     for turn in range(first.hull + second.hull):
         attacker, target = turn % 2, 1 - turn % 2

@@ -12,6 +12,8 @@ def build_report(records):
     companies = {}
     for row in records:
         company = companies.setdefault(row["id"], {"regiao": row["regiao"], "medicoes": []})
+        if company["regiao"] != row["regiao"]:
+            raise ValueError(f"Regiões divergentes para {row['id']}.")
         company["medicoes"].append({"origem": row["origem"], "acessos": row["acessos"]})
     regions = {}
     for company in companies.values():

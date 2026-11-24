@@ -19,3 +19,12 @@ class HistoricalDemosTests(unittest.TestCase):
     def test_duel_rejects_invalid_hull(self):
         with self.assertRaises(ValueError):
             duel(Robot("A", 0, 3, 1), Robot("B", 4, 1, 1))
+
+    def test_conflicting_regions_require_review(self):
+        conflicting = dict(EXAMPLE[0], regiao="Outra região")
+        with self.assertRaisesRegex(ValueError, "ISP-A"):
+            build_report([EXAMPLE[0], conflicting])
+
+    def test_robot_rejects_non_integer_statistics(self):
+        with self.assertRaises(ValueError):
+            Robot("A", 3, 1.5, 0)

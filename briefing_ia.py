@@ -3,6 +3,22 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+MAX_RESPONSE_BYTES = 16_384
+
+
+def unique_fields(pairs):
+    result = dict(pairs)
+    if len(result) != len(pairs):
+        raise ValueError("O JSON contém campos repetidos.")
+    return result
+
+
+def parse_response(path: Path):
+    with path.open("rb") as source:
+        raw = source.read(MAX_RESPONSE_BYTES + 1)
+    if len(raw) > MAX_RESPONSE_BYTES:
+        raise ValueError("A resposta supera o limite de 16 KiB.")
+    return json.loads(raw.decode("utf-8"), object_pairs_hook=unique_fields)
 
 
 def load_data(name):
@@ -39,7 +55,7 @@ def main():
         print(json.dumps(records, ensure_ascii=False, indent=2))
         return 0
     try:
-        validate(json.loads(args.response.read_text(encoding="utf-8")), records)
+        validate(parse_response(args.response), records)
     except (OSError, UnicodeError, ValueError) as error:
         print(f"Resposta inválida: {error}")
         return 1
